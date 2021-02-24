@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\StoreProperty;
-use Illuminate\Http\Request;
-use App\Property;
 use App\Image;
+use App\Property;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class PropertyController extends Controller
@@ -42,13 +43,13 @@ class PropertyController extends Controller
 
         $property = Property::create($validatedData);
 
-        if ($request -> hasFile('image')) {
+        if ($request->hasFile('image')) {
             // $file = $request -> file('image');
             // $name1=$file->storeAs('image', $property->id . '.' . $file->guessExtension());
             // dump(Storage::url($name1));
             $path = $request->file('image')->store('image');
-            $property -> image()->save(
-                Image::create(['path'=> $path])
+            $property->image()->save(
+                Image::create(['path' => $path])
             );
         }
         // die;
@@ -97,6 +98,20 @@ class PropertyController extends Controller
         //
         $property = Property::findOrFail($id);
         $validatedData = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('image');
+
+            if ($property->image) {
+                Storage::delete($property->image->path);
+                $property->image->path = $path;
+                $property->image->save();
+            } else{
+                $property->image()->save(
+                    Image::create(['path' => $path])
+                );
+            }
+        }
 
         $property->fill($validatedData);
         $property->save();

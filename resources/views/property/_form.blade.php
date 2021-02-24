@@ -68,7 +68,7 @@
     <div class="col-md-6 ">
         <div class="input-group">
             <span class="input-group-text col-md-1 pr-5">RM</span>
-            <input type="number" name="price" value="{{old('name', $property->price ?? null)}}"
+            <input type="number" name="price" value="{{old('price', $property->price ?? null)}}"
                 class="form-control col-md-11">
         </div>
 
