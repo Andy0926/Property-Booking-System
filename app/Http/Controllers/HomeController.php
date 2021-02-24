@@ -25,10 +25,10 @@ class HomeController extends Controller
         //dd(Auth::id());
         return view('home');
     }
-    // public function home(){
-    //     //dd(Auth::id());
-    //     return view('home');
-    // }
+    public function home(){
+        //dd(Auth::id());
+        return view('home');
+    }
     public function aboutUs(){
         return view('aboutUs');
     }
