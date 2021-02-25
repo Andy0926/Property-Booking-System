@@ -31,9 +31,16 @@
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('property.index')}}">Project</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="{{ route('property.create')}}">Add Property</a>
-					</li>
+					@if (Route::has('login'))
+						@auth
+							@if(Auth::user()->utype==='ADM')
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('property.create')}}">Add Property</a>
+							</li>
+							@endif
+						@endif
+					@endif
+
 					{{-- <li class="nav-item">
 						<a class="nav-link" href="csr.html">CSR</a>
 					</li> --}}

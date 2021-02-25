@@ -8,20 +8,20 @@
       <div class="col-md-12 col-lg-8">
         <div class="title-single-box">
           <h1 class="title-single">{{$property -> name}}</h1>
-          <span class="color-text-a">{{$property -> location}}</span>
+          <span class="color-text-a"><strong>{{$property -> location}}</strong></span>
         </div>
       </div>
       <div class="col-md-12 col-lg-4">
         <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="{{ route('home')}}">Home</a>
+              <a href="{{ route('home')}}"><strong>Home</strong></a>
             </li>
             <li class="breadcrumb-item">
-              <a href="{{ route('property.index')}}">Property</a>
+              <a href="{{ route('property.index')}}"><Strong>Property</Strong></a>
             </li>
-            <li class="breadcrumb-item">
-              {{$property -> name}}
+            <li class="breadcrumb-item active" aria-current="page">
+              <strong>{{$property -> name}}</strong>
             </li>
           </ol>
         </nav>

@@ -22,9 +22,6 @@
 				<div class="carousel-caption text-color custom-position1">
 					<h1 class="display-2">UTAR</h1>
 					<h3>We Build a Better Tomorrow</h3>
-					{{-- <a href="{{route('register')}}"
-						class="btn btn-outline-light btn-lg ">Edit</a>
-					<button type="button" class="btn btn-outline-light btn-lg">Register</button> --}}
 					<a href="{{route('property.index')}}" class="btn btn-primary btn-lg">View Projects</a>
 				</div>
 
@@ -32,7 +29,7 @@
 			<div class="carousel-item">
 				<img src="img/construction2.jpg">
 				<div class="carousel-caption text-color custom-position2">
-					<h1 class="display-4">We Established in 1997</h1>
+					<h1 class="display-4">We Established in 2002</h1>
 				</div>
 			</div>
 			<div class="carousel-item">
@@ -65,17 +62,17 @@
 			<div class=" col-xs-12 col-sm-6 col-md-4">
 				<img src="img/char1.png">
 				<h3>Managing Director</h3>
-				<p>Dato' Louis Chai Ming Foo</p>
+				<p>Lorem Ipsum is simply dummy text</p>
 			</div>
 			<div class=" col-xs-12 col-sm-6 col-md-4">
 				<img src="img/char1.png">
 				<h3>Executive Director</h3>
-				<p>Datin Seow An Nee</p>
+				<p>Lorem Ipsum is simply dummy text</p>
 			</div>
 			<div class=" col-sm-12 col-md-4">
 				<img src="img/char1.png">
 				<h3>Executive Director</h3>
-				<p>Mr. Ong Poh Huat</p>
+				<p>Lorem Ipsum is simply dummy text</p>
 			</div>
 			
 		</div>
