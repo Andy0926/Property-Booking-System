@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProperty;
 use App\Image;
 use App\Property;
+use Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class PropertyController extends Controller
@@ -26,11 +28,32 @@ class PropertyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('property.create');
+        if (Gate::allows('admin-only', Auth::user())) {
+            return view('property.create');
+        } else {
+            $request->session()->flash('status', 'You are not Allowed to do this');
+            return redirect()->route('property.index');
+        }
     }
-
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Request $request, $id)
+    {
+        //
+        $property = Property::findOrFail($id);
+        if (Gate::allows('admin-only', Auth::user())) {
+            return view('property.edit', ['property' => $property]);
+        } else {
+            $request->session()->flash('status', 'You are not Allowed to do this');
+            return redirect()->route('property.index');
+        }
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -73,18 +96,7 @@ class PropertyController extends Controller
 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-        $property = Property::findOrFail($id);
-        return view('property.edit', ['property' => $property]);
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -106,7 +118,7 @@ class PropertyController extends Controller
                 Storage::delete($property->image->path);
                 $property->image->path = $path;
                 $property->image->save();
-            } else{
+            } else {
                 $property->image()->save(
                     Image::create(['path' => $path])
                 );

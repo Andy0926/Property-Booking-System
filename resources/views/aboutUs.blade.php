@@ -40,13 +40,13 @@
                 </div>
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-lg-6 col-lg-5 text-center">
-                            <img src="img/Dato-Louis-Chai.jpg" alt="" class="img-fluid">
+                        <div class="col-lg-6 col-lg-5 text-center mt-5">
+                            <img src="img/prof photo.jpg" alt="" class="img-fluid">
                         </div>
                         <div class="col-lg-6 col-lg-5 ">
                             <div class="title-box-d">
-                                <h4 class="title-d text-blue">Dato’ Louis Chai Ming Foo 
-                                    <p class="text-dark">DIMP. AMP Chairman, Group Managing
+                                <h4 class="title-d text-blue">Lorem Ipsum is simply dummy text
+                                    <p class="text-dark">Chairman, Group Managing
                                         Director, Malaysian</p> </h4>
                             </div>
                             <div class="text-justify">
